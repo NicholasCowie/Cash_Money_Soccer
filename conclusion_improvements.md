@@ -1,10 +1,20 @@
+# Predictive performance assessment
+
+The predicted share of possessions ended with shots for every team in every match they played against each other can be used to assess the model's predictive power. Setting a threshold for the predicted share of shots allows to make a classifier that predicts goals and related outcomes. The questions that can be answered are f.e. if the team will win the game or if the team will score at least once.
+
+The results of the analysis are presented below. The ability-distance model has predictive power which is shown by AUC being around 0.7 for both target variables. It is not extremely high though which shows that due to the complexity of the task more complex models with more variables should be used.
+
+![Figure]{score.png}
+![Figure]{win.png}
+
+
 # Conclusions
 
 Both hierarchical models reveal the differences in teams abilities to attack and defend. Both models show similar team strategy profiles. However, the shot distance is strongly correlated with the probability of possession ending with a shot, so the attack and defense abilities differences between teams are less visible in the model that does not take the distance into account. It is also clear from the figure that the ability-only model is not able to make up for the lack of this information and the means of the predicted probabilities of the shots grouped by possession distances is far from the true value. 
 
 ![Figure]{predicted_poster_ability_dist.png}
 
-The pair plot for the teams attacking abilities shows that the joint probabilities mostly follow the normal distribution. 
+The pair plot for the teams attacking abilities shows that the joint probabilities show a slight positive correlations, and the teams attack vs defend abilities shows a negative correlation which follows the general assumptions in the model's concepts.
 
 Even though the information about goals and matches outcomes hasn't been explicitely used in the analysis the inferred team abilities for attack and defence with the correction on the shot distance have predictive power for teams scoring during the match. The classifier can be constructed with predicted probability of a shots during the game.
 
