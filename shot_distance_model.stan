@@ -50,12 +50,12 @@ generated quantities {
   
   for (l in 1:L){
     real eta_gq = mu + (ability_A[team_1[l]] - ability_D[team_2[l]]);
-    successes_pred[l] = bernoulli_rng(inv_logit(eta_gq));
+    successes_pred[l] = bernoulli_logit_rng(eta_gq);
   }
   
   for (n in 1:N){
       log_like[n] = bernoulli_logit_lpmf(shot[n]|eta_ll[n]);
-      pred_shot[n] = bernoulli_rng(inv_logit(eta_ll[n]));
+      pred_shot[n] = bernoulli_logit_rng(eta_ll[n]);
       
   }
 }
