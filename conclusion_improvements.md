@@ -14,7 +14,7 @@ Both hierarchical models reveal the differences in teams abilities to attack and
 
 ![Figure]{predicted_poster_ability_dist.png}
 
-The pair plot for the teams attacking abilities shows that the joint probabilities show a slight positive correlations, and the teams attack vs defend abilities shows a negative correlation which follows the general assumptions in the model's concepts.
+The pair plot for the teams attacking and defending abilities shows that the joint probabilities have slight positive correlations.
 
 Even though the information about goals and matches outcomes hasn't been explicitely used in the analysis the inferred team abilities for attack and defence with the correction on the shot distance have predictive power for teams scoring during the match. The classifier can be constructed with predicted probability of a shots during the game.
 
