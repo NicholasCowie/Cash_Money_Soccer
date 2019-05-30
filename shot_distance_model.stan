@@ -42,6 +42,7 @@ model {
 }
 generated quantities {
   int successes_pred[L];
+  int pred_shot[N];
   row_vector[9] distance_set = [-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0];
   row_vector[9] pred_post = mu + distance_set * distance_fact;
   vector[N] log_like;
@@ -54,5 +55,7 @@ generated quantities {
   
   for (n in 1:N){
       log_like[n] = bernoulli_logit_lpmf(shot[n]|eta_ll[n]);
+      pred_shot[n] = bernoulli_rng(inv_logit(eta_ll[n]));
+      
   }
 }

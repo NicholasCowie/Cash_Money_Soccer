@@ -34,6 +34,7 @@ model {
 }
 generated quantities {
   int successes_pred[L];
+  vector[N] pred_shot;
   vector[N] log_like;
   vector[N] eta_ll =  mu + ability_A[team_attack] - ability_D[team_defend];
   
@@ -44,5 +45,6 @@ generated quantities {
   
   for (n in 1:N){
       log_like[n] = bernoulli_logit_lpmf(shot[n]|eta_ll[n]);
+      pred_shot[n] = bernoulli_rng(inv_logit(eta_ll[n]));
   }
 }
